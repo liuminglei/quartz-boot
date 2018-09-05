@@ -37,9 +37,9 @@ sys:
 ```java
 package com.xbd.quartz.config;
 
-import cn.com.trade365.datapush.quartz.AutowiredSpringBeanJobFactory;
-import cn.com.trade365.datapush.quartz.QuartzListenerAware;
-import cn.com.trade365.datapush.quartz.handler.DefaultQuartzTaskHandler;
+import com.xbd.quartz.AutowiredSpringBeanJobFactory;
+import com.xbd.quartz.QuartzListenerAware;
+import com.xbd.quartz.handler.DefaultQuartzTaskHandler;
 import org.quartz.Scheduler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
