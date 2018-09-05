@@ -27,7 +27,7 @@ sys:
       queue-capacity: 100
     scheduler:
       config-location: classpath:quartz.properties
-      scheduler-name: data-push-gz
+      scheduler-name: demo-scheduler
       application-context-scheduler-contextKey: applicationContext
       overwrite-existing-jobs: true
       auto-startup: true
