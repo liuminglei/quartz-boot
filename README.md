@@ -7,7 +7,6 @@
 4. 动态控制定时任务启动、暂停、重启、删除、添加、修改
 5. 支持多数据库
 6. 支持自实现Scheduler、Job、Trigger监听，系统自动注册
-7. 数据源使用阿里Druid
 
 #### 使用教程
 
@@ -19,6 +18,22 @@
 6. 调用接口控制任务
 
 #### 配置示例
+```yaml
+sys:
+  quartz:
+    thread-pool:
+      core-pool-size: 20
+      max-pool-size: 50
+      queue-capacity: 100
+    scheduler:
+      config-location: classpath:quartz.properties
+      scheduler-name: data-push-gz
+      application-context-scheduler-contextKey: applicationContext
+      overwrite-existing-jobs: true
+      auto-startup: true
+      Startup-delay: 10
+```
+
 ```java
 package com.xbd.quartz.config;
 
