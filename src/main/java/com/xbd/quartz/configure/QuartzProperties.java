@@ -2,6 +2,7 @@ package com.xbd.quartz.configure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.io.Resource;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -32,11 +33,59 @@ public class QuartzProperties {
     }
 
     public static class ThreadPool {
+        private String threadNamePrefix;
+
+        private int threadPriority = 5;
+
+        private boolean daemon = false;
+
+        private String threadGroupName;
+
         private int corePoolSize = 10;
 
-        private int maxPoolSize = 20;
+        private int maxPoolSize = 2147483647;
 
-        private int queueCapacity = 50;
+        private int keepAliveSeconds = 60;
+
+        private int queueCapacity = 2147483647;
+
+        private boolean allowCoreThreadTimeOut = false;
+
+        private boolean waitForTasksToCompleteOnShutdown = false;
+
+        private int awaitTerminationSeconds = 0;
+
+        public String getThreadNamePrefix() {
+            return threadNamePrefix;
+        }
+
+        public void setThreadNamePrefix(String threadNamePrefix) {
+            this.threadNamePrefix = threadNamePrefix;
+        }
+
+        public int getThreadPriority() {
+            return threadPriority;
+        }
+
+        public void setThreadPriority(int threadPriority) {
+            this.threadPriority = threadPriority;
+        }
+
+        public boolean isDaemon() {
+            return daemon;
+        }
+
+        public void setDaemon(boolean daemon) {
+            this.daemon = daemon;
+        }
+
+        public String getThreadGroupName() {
+            return threadGroupName;
+        }
+
+        public void setThreadGroupName(String threadGroupName) {
+            this.threadGroupName = threadGroupName;
+        }
 
         public int getCorePoolSize() {
             return corePoolSize;
@@ -54,12 +103,44 @@ public class QuartzProperties {
             this.maxPoolSize = maxPoolSize;
         }
 
+        public int getKeepAliveSeconds() {
+            return keepAliveSeconds;
+        }
+
+        public void setKeepAliveSeconds(int keepAliveSeconds) {
+            this.keepAliveSeconds = keepAliveSeconds;
+        }
+
         public int getQueueCapacity() {
             return queueCapacity;
         }
 
         public void setQueueCapacity(int queueCapacity) {
             this.queueCapacity = queueCapacity;
+        }
+
+        public boolean isAllowCoreThreadTimeOut() {
+            return allowCoreThreadTimeOut;
+        }
+
+        public void setAllowCoreThreadTimeOut(boolean allowCoreThreadTimeOut) {
+            this.allowCoreThreadTimeOut = allowCoreThreadTimeOut;
+        }
+
+        public boolean isWaitForTasksToCompleteOnShutdown() {
+            return waitForTasksToCompleteOnShutdown;
+        }
+
+        public void setWaitForTasksToCompleteOnShutdown(boolean waitForTasksToCompleteOnShutdown) {
+            this.waitForTasksToCompleteOnShutdown = waitForTasksToCompleteOnShutdown;
+        }
+
+        public int getAwaitTerminationSeconds() {
+            return awaitTerminationSeconds;
+        }
+
+        public void setAwaitTerminationSeconds(int awaitTerminationSeconds) {
+            this.awaitTerminationSeconds = awaitTerminationSeconds;
         }
     }
 

@@ -1,5 +1,5 @@
 # quartz
-
+#### 非Springboot的其它框架，请移步[quartz](https://gitee.com/xbd521/quartz)
 #### 项目简介
 1. 基于quartz的二次集成
 2. 支持集群
@@ -22,9 +22,17 @@
 sys:
   quartz:
     thread-pool:
+      thread-name-prefix: 
+      thread-priority: 5
+      daemon: false
+      thread-groupName:
       core-pool-size: 20
       max-pool-size: 50
+      keep-alive-seconds: 60
       queue-capacity: 100
+      allow-core-thread-timeout: false
+      waitfor-tasks-tocomplete-onshutdown: false
+      await-termination-seconds: 60 * 15
     scheduler:
       config-location: classpath:quartz.properties
       scheduler-name: demo-scheduler
