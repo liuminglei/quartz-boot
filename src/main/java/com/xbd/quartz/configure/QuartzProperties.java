@@ -5,7 +5,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-@Component
 @ConfigurationProperties(prefix = "sys.quartz")
 public class QuartzProperties {
 

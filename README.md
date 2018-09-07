@@ -1,5 +1,5 @@
 # quartz
-#### 非Springboot的其它框架，请移步[quartz](https://gitee.com/xbd521/quartz)
+非Springboot的其它框架，请移步基础框架版[quartz](https://gitee.com/xbd521/quartz)
 #### 项目简介
 1. 基于quartz的二次集成
 2. 支持集群
@@ -22,10 +22,10 @@
 sys:
   quartz:
     thread-pool:
-      thread-name-prefix: 
+      thread-name-prefix: XbdThreadPoolTaskExecutor-
       thread-priority: 5
       daemon: false
-      thread-groupName:
+      thread-group-name: XbdThreadPoolTaskExecutorGroup
       core-pool-size: 20
       max-pool-size: 50
       keep-alive-seconds: 60
@@ -36,10 +36,10 @@ sys:
     scheduler:
       config-location: classpath:quartz.properties
       scheduler-name: demo-scheduler
-      application-context-scheduler-contextKey: applicationContext
+      application-context-scheduler-contextkey: applicationContext
       overwrite-existing-jobs: true
       auto-startup: true
-      Startup-delay: 10
+      startup-delay: 10
 ```
 
 ```java
@@ -60,13 +60,15 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class QuartzConfig {
 
     @Autowired
-    private QuartzProperties quartzProperties;
-
-    @Autowired
     private DataSource dataSource;
 
     @Autowired
     private PlatformTransactionManager transactionManager;
+
+    @Bean
+    public QuartzProperties quartzProperties() {
+        return new QuartzProperties();
+    }
 
     @Bean
     public ThreadPoolTaskExecutor threadPoolTaskExecutor() {
@@ -87,16 +89,17 @@ public class QuartzConfig {
     @Bean
     public SchedulerFactoryBean schedulerFactoryBean() {
         SchedulerFactoryBean schedulerFactoryBean = new SchedulerFactoryBean();
-        schedulerFactoryBean.setConfigLocation(quartzProperties.getScheduler().getConfigLocation());
+        schedulerFactoryBean.setConfigLocation(quartzProperties().getScheduler().getConfigLocation());
+        // 此处设置数据源之后，会覆盖quartz.properties中的myDS数据源
 //        schedulerFactoryBean.setDataSource(dataSource);
         schedulerFactoryBean.setJobFactory(autowiredSpringBeanJobFactory());
-        schedulerFactoryBean.setSchedulerName(quartzProperties.getScheduler().getSchedulerName());
+        schedulerFactoryBean.setSchedulerName(quartzProperties().getScheduler().getSchedulerName());
         schedulerFactoryBean.setTaskExecutor(threadPoolTaskExecutor());
         schedulerFactoryBean.setTransactionManager(transactionManager);
-        schedulerFactoryBean.setApplicationContextSchedulerContextKey(quartzProperties.getScheduler().getApplicationContextSchedulerContextKey());
-        schedulerFactoryBean.setOverwriteExistingJobs(quartzProperties.getScheduler().isOverwriteExistingJobs());
-        schedulerFactoryBean.setAutoStartup(quartzProperties.getScheduler().isAutoStartup());
-        schedulerFactoryBean.setStartupDelay(quartzProperties.getScheduler().getStartupDelay());
+        schedulerFactoryBean.setApplicationContextSchedulerContextKey(quartzProperties().getScheduler().getApplicationContextSchedulerContextKey());
+        schedulerFactoryBean.setOverwriteExistingJobs(quartzProperties().getScheduler().isOverwriteExistingJobs());
+        schedulerFactoryBean.setAutoStartup(quartzProperties().getScheduler().isAutoStartup());
+        schedulerFactoryBean.setStartupDelay(quartzProperties().getScheduler().getStartupDelay());
 
         return schedulerFactoryBean;
     }
@@ -114,10 +117,10 @@ public class QuartzConfig {
     }
 
     @Bean
-    public DefaultQuartzTaskHandler taskService() {
-        DefaultQuartzTaskHandler taskService = new DefaultQuartzTaskHandler();
-        taskService.setScheduler(scheduler());
-        return taskService;
+    public DefaultQuartzTaskHandler defaultQuartzTaskHandler() {
+        DefaultQuartzTaskHandler defaultQuartzTaskHandler = new DefaultQuartzTaskHandler();
+        defaultQuartzTaskHandler.setScheduler(scheduler());
+        return defaultQuartzTaskHandler;
     }
 }
 ```
