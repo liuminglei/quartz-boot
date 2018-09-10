@@ -45,6 +45,10 @@ public class DefaultQuartzTaskHandler extends QuartzTaskHandler {
             triggerBuilder.startNow();
         }
 
+        if (quartzTask.getEndAt() != null) {
+            triggerBuilder.endAt(quartzTask.getEndAt());
+        }
+
         CronTrigger cronTrigger = triggerBuilder.build();
 
         scheduler.scheduleJob(jobDetail, cronTrigger);
@@ -94,6 +98,10 @@ public class DefaultQuartzTaskHandler extends QuartzTaskHandler {
 
         if (quartzTask.isStartNow()) {
             triggerBuilder.startNow();
+        }
+
+        if (quartzTask.getEndAt() != null) {
+            triggerBuilder.endAt(quartzTask.getEndAt());
         }
 
         cronTrigger = triggerBuilder.build();

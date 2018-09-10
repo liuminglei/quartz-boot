@@ -15,6 +15,8 @@ public class QuartzTask implements Serializable {
 
     private boolean startNow;
 
+    private Date endAt;
+
     private String targetClass;
 
     private String targetObject;
@@ -73,6 +75,14 @@ public class QuartzTask implements Serializable {
 
     public void setStartNow(boolean startNow) {
         this.startNow = startNow;
+    }
+
+    public Date getEndAt() {
+        return endAt;
+    }
+
+    public void setEndAt(Date endAt) {
+        this.endAt = endAt;
     }
 
     public String getTargetClass() {

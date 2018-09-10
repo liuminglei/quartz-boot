@@ -2,8 +2,6 @@ package com.xbd.quartz.configure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.io.Resource;
-import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 
 @ConfigurationProperties(prefix = "sys.quartz")
 public class QuartzProperties {
