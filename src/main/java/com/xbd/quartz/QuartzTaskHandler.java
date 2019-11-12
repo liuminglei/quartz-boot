@@ -16,7 +16,7 @@ import org.springframework.util.ObjectUtils;
 /**
  * 定时任务控制器
  *
- * @author 刘明磊
+ * @author luas
  * @since 1.0
  */
 public abstract class QuartzTaskHandler {

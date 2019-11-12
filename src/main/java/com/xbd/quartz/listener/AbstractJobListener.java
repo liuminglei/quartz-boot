@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 /**
  * <p>自定义JobListener，可匹配任务。定义并配置之后，系统可自动注册
  *
- * @author 小不点
+ * @author luas
  * @since 1.0
  */
 public abstract class AbstractJobListener implements JobListener {

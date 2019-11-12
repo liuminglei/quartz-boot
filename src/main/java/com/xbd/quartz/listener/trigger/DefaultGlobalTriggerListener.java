@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 默认全局TriggerListener
  *
- * @author 小不点
+ * @author luas
  * @since 1.0
  */
 public class DefaultGlobalTriggerListener extends AbstractTriggerListener {

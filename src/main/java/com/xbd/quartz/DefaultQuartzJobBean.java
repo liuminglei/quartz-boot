@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * 默认定时任务QuartzJobBean
  *
- * @author 小不点
+ * @author luas
  * @since 1.0
  */
 @Deprecated
