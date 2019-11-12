@@ -8,7 +8,7 @@ import org.springframework.scheduling.quartz.SpringBeanJobFactory;
 /**
  * 自动装载Bean到Spring，可在JobBean中直接注入定义的Bean
  *
- * @author 小不点
+ * @author luas
  * @since 1.0
  */
 public class AutowiredSpringBeanJobFactory extends SpringBeanJobFactory implements ApplicationContextAware {

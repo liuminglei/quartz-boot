@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 /**
  * 默认定时任务QuartzJobBean
  *
- * @author 刘明磊
+ * @author luas
  * @since 1.0
  */
 public abstract class AbstractQuartzJobBean extends QuartzJobBean {

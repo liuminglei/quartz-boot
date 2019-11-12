@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * JobListener、SchedulerListener、TriggerListener自动注册监听
  *
- * @author 小不点
+ * @author luas
  * @since 1.0
  */
 public class QuartzListenerRegister implements ApplicationContextAware, InitializingBean {
