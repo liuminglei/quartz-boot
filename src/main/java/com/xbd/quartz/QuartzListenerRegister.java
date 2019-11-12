@@ -21,7 +21,7 @@ import java.util.Map;
  *
  * @author 小不点
  */
-public class QuartzListenerAware implements ApplicationContextAware, InitializingBean {
+public class QuartzListenerRegister implements ApplicationContextAware, InitializingBean {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
