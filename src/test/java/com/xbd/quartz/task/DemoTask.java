@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
+@Deprecated
 public class DemoTask extends AbstractQuartzTask {
 
     private Logger logger = LoggerFactory.getLogger(getClass());

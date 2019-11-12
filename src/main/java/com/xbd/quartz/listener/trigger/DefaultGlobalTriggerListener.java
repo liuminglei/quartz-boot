@@ -8,11 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * <p>
  * 默认全局TriggerListener
- * </p>
  *
  * @author 小不点
+ * @since 1.0
  */
 public class DefaultGlobalTriggerListener extends AbstractTriggerListener {
 

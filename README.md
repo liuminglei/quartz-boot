@@ -68,7 +68,7 @@ sys:
 package com.xbd.quartz.config;
 
 import com.xbd.quartz.AutowiredSpringBeanJobFactory;
-import com.xbd.quartz.QuartzListenerAware;
+import com.xbd.quartz.QuartzListenerRegister;
 import com.xbd.quartz.handler.DefaultQuartzTaskHandler;
 import org.quartz.Scheduler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -132,10 +132,10 @@ public class QuartzConfig {
     }
 
     @Bean
-    public QuartzListenerAware quartzListenerAware() {
-        QuartzListenerAware quartzListenerAware = new QuartzListenerAware();
-        quartzListenerAware.setScheduler(scheduler());
-        return quartzListenerAware;
+    public QuartzListenerRegister quartzListenerRegister() {
+        QuartzListenerRegister quartzListenerRegister = new QuartzListenerRegister();
+        quartzListenerRegister.setScheduler(scheduler());
+        return quartzListenerRegister;
     }
 
     @Bean

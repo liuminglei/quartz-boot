@@ -16,12 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>
  * 默认定时任务QuartzJobBean
- * </p>
  *
  * @author 小不点
+ * @since 1.0
  */
+@Deprecated
 public class DefaultQuartzJobBean extends QuartzJobBean {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -121,5 +121,5 @@ public class DefaultQuartzJobBean extends QuartzJobBean {
 	public void setTargetMethodParam(String targetMethodParam) {
 		this.targetMethodParam = targetMethodParam;
 	}
-	
+
 }

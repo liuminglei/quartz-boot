@@ -3,6 +3,10 @@ package com.xbd.quartz.configure;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.io.Resource;
 
+/**
+ * @author luas
+ * @since 1.0
+ */
 @ConfigurationProperties(prefix = "sys.quartz")
 public class QuartzProperties {
 
