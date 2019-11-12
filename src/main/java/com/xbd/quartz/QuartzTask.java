@@ -3,6 +3,13 @@ package com.xbd.quartz;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 定时任务实体
+ * <p>此类已不再使用，请使用{@link QuartzJob}、{@link QuartzTrigger}组织定时任务.
+ * @author luas
+ * @since 1.0
+ */
+@Deprecated
 public class QuartzTask implements Serializable {
 
     private String name;

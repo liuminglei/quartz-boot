@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- *  定时任务实体，包含任务名称、任务分组、任务描述、任务开始时间、是否立即开始、
- *  任务结束时间、任务目标类、任务目标类SpringBean对象、任务目标类执行方法、cron表达式等属性
+ * 定时任务实体
+ * <p>包含JobKey、description、jobClass、jobData、durability、shouldRecover、triggers.
  *
  * @author luas
  * @since 2.0
@@ -22,7 +22,7 @@ public class QuartzJob implements Serializable {
 
     private String description;
 
-    private Class<? extends DefaultQuartzJobBean> jobClass;
+    private Class<? extends AbstractQuartzJobBean> jobClass;
 
     private Map<String, Object> jobData;
 
@@ -58,11 +58,11 @@ public class QuartzJob implements Serializable {
         this.description = description;
     }
 
-    public Class<? extends DefaultQuartzJobBean> getJobClass() {
+    public Class<? extends AbstractQuartzJobBean> getJobClass() {
         return jobClass;
     }
 
-    public void setJobClass(Class<? extends DefaultQuartzJobBean> jobClass) {
+    public void setJobClass(Class<? extends AbstractQuartzJobBean> jobClass) {
         this.jobClass = jobClass;
     }
 

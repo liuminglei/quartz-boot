@@ -1,5 +1,6 @@
 package com.xbd.quartz;
 
+@Deprecated
 public abstract class AbstractQuartzTask {
 
     public final static String DEFAULT_TARGETMETHOD = "execute";

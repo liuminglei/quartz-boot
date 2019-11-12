@@ -7,6 +7,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * {@code QuartzTrigger} to {@link Trigger}
+ * @author luas
+ * @since 2.0
+ */
 public class QuartzTriggerBuilder {
 
     private QuartzTrigger.TriggerType type = QuartzTrigger.TriggerType.SIMPLE;

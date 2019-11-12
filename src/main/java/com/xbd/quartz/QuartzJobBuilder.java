@@ -8,13 +8,18 @@ import java.util.Set;
 import org.quartz.JobKey;
 import org.quartz.utils.Key;
 
+/**
+ * {@code QuartzJob} to {@link org.quartz.JobDetail}
+ * @author luas
+ * @since 2.0
+ */
 public class QuartzJobBuilder {
 
     private JobKey key;
 
     private String description;
 
-    private Class<? extends DefaultQuartzJobBean> jobClass;
+    private Class<? extends AbstractQuartzJobBean> jobClass;
 
     private Map<String, Object> jobData = new HashMap<>();
 
@@ -28,9 +33,9 @@ public class QuartzJobBuilder {
         return new QuartzJobBuilder();
     }
 
-    public static QuartzJobBuilder newJob(Class<? extends DefaultQuartzJobBean> jobClass) {
+    public static QuartzJobBuilder newJob(Class<? extends AbstractQuartzJobBean> jobClass) {
         QuartzJobBuilder builder = new QuartzJobBuilder();
-        builder.ofType(jobClass);
+        builder.forJob(jobClass);
         return builder;
     }
 
@@ -78,7 +83,7 @@ public class QuartzJobBuilder {
         return this;
     }
 
-    public QuartzJobBuilder ofType(Class<? extends DefaultQuartzJobBean> jobClazz) {
+    public QuartzJobBuilder forJob(Class<? extends AbstractQuartzJobBean> jobClazz) {
         this.jobClass = jobClazz;
         return this;
     }

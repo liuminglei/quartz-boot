@@ -15,11 +15,10 @@ import org.springframework.context.ApplicationContextAware;
 import java.util.Map;
 
 /**
- * <p>
  * JobListener、SchedulerListener、TriggerListener自动注册监听
- * </p>
  *
  * @author 小不点
+ * @since 1.0
  */
 public class QuartzListenerRegister implements ApplicationContextAware, InitializingBean {
 
