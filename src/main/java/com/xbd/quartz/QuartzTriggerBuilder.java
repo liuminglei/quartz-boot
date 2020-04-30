@@ -14,6 +14,8 @@ import java.util.Map;
  */
 public class QuartzTriggerBuilder {
 
+    public static final long MILLISECONDS_IN_SECOND = 1000L;
+
     private QuartzTrigger.TriggerType type = QuartzTrigger.TriggerType.SIMPLE;
 
     private JobKey jobKey;
@@ -157,8 +159,13 @@ public class QuartzTriggerBuilder {
         return this;
     }
 
+    public QuartzTriggerBuilder withIntervalInMilliSeconds(long intervalInMilliSeconds) {
+        this.interval = intervalInMilliSeconds;
+        return this;
+    }
+
     public QuartzTriggerBuilder withIntervalInSeconds(long intervalInSeconds) {
-        this.interval = intervalInSeconds;
+        this.interval = intervalInSeconds * MILLISECONDS_IN_SECOND;
         return this;
     }
 
