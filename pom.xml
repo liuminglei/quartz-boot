@@ -22,7 +22,7 @@
         <quartz-version>2.2.3</quartz-version>
         <fastjson-version>1.2.58</fastjson-version>
         <spring-version>5.0.8.RELEASE</spring-version>
-        <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
+        <spring-boot.version>2.2.11.RELEASE</spring-boot.version>
     </properties>
 
     <dependencies>
